@@ -7,16 +7,33 @@ const ingredients = [
   'Condiments',
 ];
 
-const ulElement = document.querySelector('ul');
-const elements = [];
+//{ ВАРІАНТ РОБОТИ ЧЕРЕЗ ЦИКЛ }
 
-for (let i = 0; i < ingredients.length; i += 1) {
-  const ingredient = ingredients[i];
-  const liElement = document.createElement('li');
-  liElement.textContent = ingredient;
-  liElement.classList.add('item');
 
-  elements.push(liElement);
-}
+// const ulElement = document.querySelector('ul');
+// const elements = [];
 
-ulElement.append(...elements);
+// for (let i = 0; i < ingredients.length; i += 1) {
+//   const ingredient = ingredients[i];
+//   const liElement = document.createElement('li');
+//   liElement.textContent = ingredient;
+//   liElement.classList.add('item');
+
+//   elements.push(liElement);
+// }
+
+// ulElement.append(...elements);
+
+
+const ulElement = document.querySelector("ul");
+const elements = ingredients.map(option => {
+
+  const titleEl = document.createElement("li");
+  titleEl.classList.add("item");
+  titleEl.textContent = option;
+
+  return titleEl;
+});
+
+console.log(elements);
+ulElement.append(...elements)
