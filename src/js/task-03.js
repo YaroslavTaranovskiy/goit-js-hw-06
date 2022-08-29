@@ -14,14 +14,38 @@ const images = [
 ];
 
 // const galEl = document.querySelector('.gallery');
-for (const image of images) {
-  const galleryEL = document.querySelector('.gallery');
-  galleryEL.style.display = 'flex';
-  galleryEL.style.gap = '60px';
-  galleryEL.style.padding = '60px';
-  galleryEL.insertAdjacentHTML(
-    'afterbegin',
-    `<li><img src='${image.url}' alt='${image.alt}' width = '250px' height = '125px'></li>`
-  );
+// for (const image of images) {
+//   const galleryEL = document.querySelector('.gallery');
+//   galleryEL.style.display = 'flex';
+//   galleryEL.style.gap = '60px';
+//   galleryEL.style.padding = '60px';
+//   galleryEL.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li><img src='${image.url}' alt='${image.alt}' width = '250px' height = '125px'></li>`
+//   );
   
-}
+// }
+
+
+const galleryEl = document.querySelector('.gallery');
+console.log(galleryEl);
+
+
+const listGallery = item => {
+  return `<li>
+    <img src="${item.url}" alt="${item.alt}"width='500'/>
+  </li>`;
+};
+
+
+galleryEl.style.cssText = `
+display: flex; 
+flex-wrap: wrap; 
+align-items: center;
+list-style:none;
+justify-content:space-between;`
+
+const markup = images.map(listGallery).join('');
+console.log(markup);
+galleryEl.insertAdjacentHTML('beforeend', markup);
+
