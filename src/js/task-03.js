@@ -28,15 +28,12 @@ const images = [
 
 
 const galleryEl = document.querySelector('.gallery');
-console.log(galleryEl);
-
 
 const listGallery = item => {
   return `<li>
     <img src="${item.url}" alt="${item.alt}"width='500'/>
   </li>`;
 };
-
 
 galleryEl.style.cssText = `
 display: flex; 
@@ -46,6 +43,6 @@ list-style:none;
 justify-content:space-between;`
 
 const markup = images.map(listGallery).join('');
-console.log(markup);
+
 galleryEl.insertAdjacentHTML('beforeend', markup);
 
